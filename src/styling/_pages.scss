@@ -1,16 +1,15 @@
 .home {
-    height: 90%;
-
-    &__intro {
+    &__heading {
         margin: 2em;
         padding: 2em;
         background-color: $tan;
         border-radius: 2em;
         
-        text-align: center;
-
         h1 {
             font-weight: 400;
+            text-align: center;
         }
     }
+
+
 }

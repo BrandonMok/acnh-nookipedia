@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.scss';
 import Homepage from './pages/homepage';
-import About from './pages/about';
+import Fish from './pages/fish';
 import Header from './components/header';
 import Footer from './components/footer';
 
@@ -12,7 +12,7 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/fish" element={<Fish />} />
       </Routes>
 
       <Footer />
