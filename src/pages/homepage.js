@@ -3,11 +3,23 @@ import React from 'react';
 export default function Homepage() {
     return (
         <div className='container home'>
-            <div className='home__heading'>
-                <h1>ACNH Nookipedia</h1>
-            </div>
-            <div className='home__opening'>
-                Welcome!
+            <div className='row'>
+                <div className='col-12'>
+                    <div className='home__heading'>
+                        <h1>ACNH Nookipedia</h1>
+                    </div>
+                </div>
+                <div className='col-12'>
+                    <div className='home__opening'>
+                        Welcome to the <i>custom</i> ACNH Nookipedia!
+                        <br />
+                        The application provides helpful information relating to fish, bugs, and sea creatures when living on your island.
+                        <br />
+                        <br />
+                        Disclaimer: In conjunction with the API owner's disclaimer, all assets and data used in the application is of sole property and ownership by Nintendo. 
+                        Data used from the API and thereby the game is only used for educational purposes.
+                    </div>
+                </div>
             </div>
         </div>
     );
