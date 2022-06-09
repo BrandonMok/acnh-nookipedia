@@ -16,6 +16,17 @@ export default function Homepage() {
                         The application provides helpful information relating to fish, bugs, and sea creatures when living on your island.
                         <br />
                         <br />
+                        
+                        <h2>Built with:</h2>
+                        <ul>
+                            <li><a href="http://acnhapi.com/doc">ACNH API</a></li>
+                            <li>React w/react-router</li>
+                            <li>SASS</li>
+                            <li>Bootstrap</li>
+                        </ul>
+
+                        <br />
+                        <br />
                         Disclaimer: In conjunction with the API owner's disclaimer, all assets and data used in the application is of sole property and ownership by Nintendo. 
                         Data used from the API and thereby the game is only used for educational purposes.
                     </div>
