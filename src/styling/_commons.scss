@@ -30,14 +30,8 @@ nav {
     align-items: center;
 
     a {
-        color: $black;
         padding: 1em;
         text-decoration: none;
-
-        &:hover {
-            color: $black;
-            font-weight: bold;
-        }
     }
 }
 

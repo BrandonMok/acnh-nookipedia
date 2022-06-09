@@ -11,9 +11,9 @@ export default function Homepage() {
                 </div>
                 <div className='col-12'>
                     <div className='home__opening'>
-                        Welcome to the <i>custom</i> ACNH Nookipedia!
+                        Welcome to the <i>custom</i> Animal Crossing New Horizons (ACNH) Nookipedia!
                         <br />
-                        The application provides helpful information relating to fish, bugs, and sea creatures when living on your island.
+                        The application provides useful information relating to fish, bugs, and sea creatures that you may find living on or around your island.
                         <br />
                         <br />
                         

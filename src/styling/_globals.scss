@@ -5,3 +5,13 @@
 body {
     background-color: $cream;
 }
+
+a {
+    color: $black;
+    text-decoration: none;
+
+    &:hover {
+        color: $black;
+        font-weight: bold;
+    }
+}
