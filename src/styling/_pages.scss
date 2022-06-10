@@ -1,5 +1,5 @@
 .home {
-    padding: 2em 0;
+    padding: 1em;
 
     // &__heading {
     //     padding: 2em;
@@ -24,5 +24,7 @@
 
 
 @include media-breakpoint-up(md) {
-
+    .home {
+        padding: 2em 0;
+    }
 }

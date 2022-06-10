@@ -27,7 +27,7 @@ export default function Homepage() {
 
                         <br />
                         <br />
-                        Disclaimer: In conjunction with the API owner's disclaimer, all assets and data used in the application is of sole property and ownership by Nintendo. 
+                        Disclaimer: In conjunction with the <a href="http://acnhapi.com/">API owner's disclaimer</a>, all assets and data used in the application is of sole property and ownership by Nintendo. 
                         Data used from the API and thereby the game is only used for educational purposes.
                     </div>
                 </div>
