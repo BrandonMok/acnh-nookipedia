@@ -14,14 +14,11 @@ export default function Fish() {
         fetchFishData()
         .then((resp) => {
             const updatedArr = [...fishList, resp];
-            // console.log("updated arr: " + updatedArr);
             updateFishList(updatedArr);
         })
         .catch((error) => {
             console.log(error);
         })
-
-        // console.log(fishList);
     }, []);
 
     return (
@@ -31,9 +28,14 @@ export default function Fish() {
                     fish page
                 </div>
                 <div className='col-12 fish__list'>
-                    {
-                        fishList.map((fish) => {
-                            <h1 key={fish.id}>{fish.name}</h1>
+                    { fishList.length > 0 &&
+                        fishList.map(({ id, price }) => {
+                            return (
+                                <>
+                                    <h1>{id}</h1>
+                                    <h1>{price}</h1>
+                                </>
+                            );
                         })
                     }
                 </div>
