@@ -5,8 +5,9 @@ export default function Fish() {
     // id, name.name-USen, icon_uri, price, museum-phrase
     const [fishList, updateFishList] = useState([]);
 
+    // ideally would want to incorporate useMemo...
     async function fetchFishData() {
-        const res = await fetch('https://acnhapi.com/v1/fish/1');
+        const res = await fetch('https://acnhapi.com/v1/fish');
         const data = await res.json();
         return await data;
     }
@@ -14,8 +15,8 @@ export default function Fish() {
     useEffect(() => {
         fetchFishData()
         .then((resp) => {
-            console.log(resp.name['name-USen']);
-            updateFishList([resp]);
+            const respArr = Array.from(Object.entries(resp));
+            updateFishList(respArr);
         })
         .catch((error) => {
             console.log(error);
@@ -30,14 +31,14 @@ export default function Fish() {
                 </div>
                 <div className='col-12 fish__list'>
                     { fishList.length > 0 ? (
-                        fishList.map(({ id, name, price, icon_uri, shadow }) => {
+                        fishList.map((fish) => {
                             return (
                                <Card 
-                                id={id}
-                                name={name}
-                                price={price}
-                                icon_uri={icon_uri}
-                                shadow={shadow}
+                                key="{fish[1].id}"
+                                name={fish[1].name}
+                                price={fish[1].price}
+                                icon_uri={fish[1].icon_uri}
+                                shadow={fish[1].shadow}
                                />
                             );
                         })

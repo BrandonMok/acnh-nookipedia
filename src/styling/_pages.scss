@@ -22,9 +22,21 @@
     // }
 }
 
+.fish {
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
 
 @include media-breakpoint-up(md) {
     .home {
         padding: 2em 0;
+    }
+
+    .fish {
+        &__list {
+            grid-template-columns: repeat(3, 1fr);
+        }
     }
 }

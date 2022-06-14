@@ -1,13 +1,15 @@
 import React from 'react';
 
-export default function Card({id, name, price, icon_uri, shadow}) {
+export default function Card({name, price, icon_uri, shadow}) {
     return (
         <div className='card'>
             <div className='card__icon'>
                 <img src={icon_uri} alt={name} />
             </div>
             <div className='card__content'>
-                <h3>Name</h3>
+                <p>{name['name-USen'].charAt(0).toUpperCase() + name['name-USen'].slice(1)}</p>
+                <p>{price + ' bells'}</p>
+                <p>{shadow}</p>
             </div>
         </div>
     );
