@@ -26,8 +26,16 @@
     &__list {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1,1fr);
+        row-gap: 2em;
     }
 }
+
+.error {
+    text-align: center;
+    padding: 10em 0;
+}
+
 
 @include media-breakpoint-up(md) {
     .home {

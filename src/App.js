@@ -4,6 +4,7 @@ import Homepage from './pages/homepage';
 import Fish from './pages/fish';
 import Header from './components/header';
 import Footer from './components/footer';
+import Error from './pages/error';
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/fish" element={<Fish />} />
+        <Route path="*" element={<Error />} />
       </Routes>
 
       <Footer />
