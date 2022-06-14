@@ -6,6 +6,7 @@ export default function Navigation() {
         <nav>
             <Link to="/">Home</Link>
             <Link to="/fish">Fish</Link>
+            <Link to="/bugs">Bugs</Link>
         </nav>
     );
 }
