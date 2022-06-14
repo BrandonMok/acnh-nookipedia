@@ -9,7 +9,8 @@ export default function Card({name, price, icon_uri, shadow}) {
             <div className='card__content'>
                 <p>{name['name-USen'].charAt(0).toUpperCase() + name['name-USen'].slice(1)}</p>
                 <p>{price + ' bells'}</p>
-                <p>{shadow}</p>
+
+                {shadow && <p>{shadow}</p>}
             </div>
         </div>
     );

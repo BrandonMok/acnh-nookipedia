@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Card from '../components/card';
 
 export default function Bugs() {
     const [bugList, updateBugList] = useState([]);
@@ -28,14 +29,13 @@ export default function Bugs() {
                     { bugList.length > 0 ? (
                         bugList.map((bug) => {
                             return (
-                                <h1>{bug.id}</h1>
-                                // <FishCard 
-                                //     key="{fish[1].id}"
-                                //     name={fish[1].name}
-                                //     price={fish[1].price}
-                                //     icon_uri={fish[1].icon_uri}
-                                //     shadow={fish[1].shadow}
-                                // />
+                                <Card 
+                                    key="{bug[1].id}"
+                                    name={bug[1].name}
+                                    price={bug[1].price}
+                                    icon_uri={bug[1].icon_uri}
+                                    shadow={bug[1].shadow}
+                                />
                             );
                         })
                     ) : (

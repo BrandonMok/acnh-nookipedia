@@ -22,11 +22,11 @@
     // }
 }
 
-.fish {
+.fish, .bugs {
     &__list {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: repeat(1,1fr);
+        grid-template-rows: auto;
         row-gap: 2em;
     }
 }
@@ -42,9 +42,10 @@
         padding: 2em 0;
     }
 
-    .fish {
+    .fish, .bugs {
         &__list {
             grid-template-columns: repeat(3, 1fr);
+            justify-items: center;
         }
     }
 }
