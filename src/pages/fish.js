@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
 import FishCard from '../components/fishcard';
 
 export default function Fish() {
@@ -26,10 +25,7 @@ export default function Fish() {
     return (
         <div className='container fish'>
             <div className='row'>
-                <div className='col-12'>
-                    fish page
-                </div>
-                <div className='col-12 pb-4 fish__list'>
+                <div className='col-12 pt-4 pb-4 fish__list'>
                     { fishList.length > 0 ? (
                         fishList.map((fish) => {
                             return (
@@ -43,7 +39,7 @@ export default function Fish() {
                             );
                         })
                     ) : (
-                        <h1>no data found</h1>
+                        <h1>No Fish Available!</h1>
                     )}
                 </div>
             </div>
