@@ -1,0 +1,15 @@
+.card {
+    background-color: $tan;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border-radius: 1em;
+    max-width: 300px;
+    max-height: 300px;
+    padding: 1em;
+
+    &__icon {
+        text-align: center;
+    }
+}

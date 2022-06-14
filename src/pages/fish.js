@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
+import Card from '../components/card';
 
 export default function Fish() {
-    // id, name.name-USen, icon_uri, price, price_cj, museum-phrase
+    // id, name.name-USen, icon_uri, price, museum-phrase
     const [fishList, updateFishList] = useState([]);
 
     async function fetchFishData() {
@@ -13,8 +14,8 @@ export default function Fish() {
     useEffect(() => {
         fetchFishData()
         .then((resp) => {
-            const updatedArr = [...fishList, resp];
-            updateFishList(updatedArr);
+            console.log(resp.name['name-USen']);
+            updateFishList([resp]);
         })
         .catch((error) => {
             console.log(error);
@@ -28,16 +29,21 @@ export default function Fish() {
                     fish page
                 </div>
                 <div className='col-12 fish__list'>
-                    { fishList.length > 0 &&
-                        fishList.map(({ id, price }) => {
+                    { fishList.length > 0 ? (
+                        fishList.map(({ id, name, price, icon_uri, shadow }) => {
                             return (
-                                <>
-                                    <h1>{id}</h1>
-                                    <h1>{price}</h1>
-                                </>
+                               <Card 
+                                id={id}
+                                name={name}
+                                price={price}
+                                icon_uri={icon_uri}
+                                shadow={shadow}
+                               />
                             );
                         })
-                    }
+                    ) : (
+                        <h1>no data found</h1>
+                    )}
                 </div>
             </div>
         </div>
