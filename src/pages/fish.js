@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import FishCard from '../components/fishcard';
+import Card from '../components/card';
 
 export default function Fish() {
     const [fishList, updateFishList] = useState([]);
@@ -29,7 +29,7 @@ export default function Fish() {
                     { fishList.length > 0 ? (
                         fishList.map((fish) => {
                             return (
-                                <FishCard 
+                                <Card 
                                     key="{fish[1].id}"
                                     name={fish[1].name}
                                     price={fish[1].price}
