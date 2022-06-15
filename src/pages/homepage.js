@@ -19,7 +19,7 @@ export default function Homepage() {
                         
                         <h2>Built with:</h2>
                         <ul>
-                            <li><a href="http://acnhapi.com/doc">ACNH API</a></li>
+                            <li><a href="http://acnhapi.com/doc" target="_blank" rel="noreferrer">ACNH API</a></li>
                             <li>React w/react-router</li>
                             <li>SASS</li>
                             <li>Bootstrap</li>

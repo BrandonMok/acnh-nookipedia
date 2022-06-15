@@ -22,7 +22,7 @@
     // }
 }
 
-.fish, .bugs {
+.fish, .bugs, .sea {
     &__list {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
@@ -42,7 +42,7 @@
         padding: 2em 0;
     }
 
-    .fish, .bugs {
+    .fish, .bugs, .sea {
         &__list {
             grid-template-columns: repeat(3, 1fr);
             justify-items: center;

@@ -7,6 +7,7 @@ export default function Navigation() {
             <Link to="/">Home</Link>
             <Link to="/fish">Fish</Link>
             <Link to="/bugs">Bugs</Link>
+            <Link to="/sea">Sea Creatures</Link>
         </nav>
     );
 }
