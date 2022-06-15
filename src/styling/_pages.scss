@@ -22,15 +22,6 @@
     // }
 }
 
-.fish, .bugs, .sea {
-    &__list {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: auto;
-        row-gap: 2em;
-    }
-}
-
 .error {
     text-align: center;
     padding: 10em 0;
@@ -40,12 +31,5 @@
 @include media-breakpoint-up(md) {
     .home {
         padding: 2em 0;
-    }
-
-    .fish, .bugs, .sea {
-        &__list {
-            grid-template-columns: repeat(3, 1fr);
-            justify-items: center;
-        }
     }
 }

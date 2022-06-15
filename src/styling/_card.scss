@@ -9,6 +9,10 @@
     height: 300px;
     padding: 1em;
 
+    &:hover {
+        border: 2px solid $brown;
+    }
+
     &__icon {
         text-align: center;
     }
