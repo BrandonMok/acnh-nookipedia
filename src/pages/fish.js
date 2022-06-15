@@ -1,18 +1,17 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useMemo} from 'react';
 import ItemGrid from '../components/itemgrid';
 
 export default function Fish() {
     const [fishList, updateFishList] = useState([]);
+    const apiData = useMemo(async () => fetchFishData(), []);
 
-    // ideally would want to incorporate useMemo...
     async function fetchFishData() {
         const res = await fetch('https://acnhapi.com/v1/fish');
-        const data = await res.json();
-        return await data;
+        return await res.json();
     }
 
     useEffect(() => {
-        fetchFishData()
+        apiData
         .then((resp) => {
             const respArr = Array.from(Object.entries(resp));
             updateFishList(respArr);
@@ -20,7 +19,7 @@ export default function Fish() {
         .catch((error) => {
             console.log(error);
         })
-    }, []);
+    }, [apiData]);
 
     return (
         <ItemGrid itemList={fishList} area="Fish" />
