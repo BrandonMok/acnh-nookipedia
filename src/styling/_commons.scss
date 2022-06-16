@@ -57,7 +57,7 @@
         position: absolute;
         top: 2.5em;
         right: 1em;
-        z-index: 5;
+        z-index: 100;
         border-radius: 2rem;
 
         -webkit-box-shadow: 0 8px 10px -10px $black;
@@ -68,10 +68,7 @@
             width: 10em;
             height: 10em;
             background-color: $white;
-
-            a {
-                position: relative;
-            }
+            display: block;
         }
 
         &--hide {
