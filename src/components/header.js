@@ -1,6 +1,7 @@
 import React from "react";
 import LeafIcon from "../images/leaf.png";
 import Navigation from "./navigation";
+import MobileNav from './mobilenav';
 
 export default function Header() {
     return (
@@ -11,6 +12,7 @@ export default function Header() {
                 </div>
                 <div className="header__flexbox__nav">
                     <Navigation />
+                    <MobileNav />
                 </div>
             </div>
         </div>
