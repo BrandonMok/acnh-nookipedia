@@ -52,6 +52,17 @@
     &__hamburger {
         font-size: 2em;
     }
+
+    &__container {
+        position: absolute;
+        height: 10em;
+        top: 3.5em;
+        right: 1em;
+        width: 0;
+        z-index: 10;
+        overflow: hidden;
+        border-radius: 2rem;
+    }
 }
 
 @include media-breakpoint-up(md){
