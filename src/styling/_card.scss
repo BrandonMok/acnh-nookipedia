@@ -1,13 +1,13 @@
 .card {
-    background-color: $tan;
     display: flex;
     flex-direction: column;
     justify-content: center;
-
+    background-color: $tan;
     border-radius: 1em;
-    width: 300px;
-    height: 300px;
-    padding: 1em;
+    overflow: hidden;
+
+    min-width: 100px;
+    min-height: 100px;
 
     &:hover {
         border: 2px solid $brown;
@@ -16,6 +16,11 @@
 
     &__icon {
         text-align: center;
+        padding-top: 1em;
+
+        img {
+            max-height: 80px;
+        }
     }
     
     &__content {
@@ -26,5 +31,23 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .card {
+        width: 225px;
+        height: 225px;
+
+        &__icon img {
+            max-height: 100px;
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .card {
+        width: 300px;
+        height: 300px;
     }
 }
