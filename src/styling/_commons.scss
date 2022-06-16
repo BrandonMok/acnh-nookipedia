@@ -5,12 +5,16 @@
         @extend .container;
 
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: space-between;
 
         &__icon img {
             height: 70px;
             width: 70px;
+        }
+
+        &__nav {
+            display: flex;
         }
     }
 }
@@ -25,7 +29,7 @@
     width: 100%;
 }
 
-nav {
+.main-nav {
     display: flex;
     align-items: center;
 
@@ -33,6 +37,7 @@ nav {
         color: $black;
         padding: 1em;
         text-decoration: none;
+        display: none;
 
         &:hover {
             color: $black;
@@ -40,8 +45,27 @@ nav {
     }
 }
 
+.mobile-nav {
+    display: block;
+    position: relative;
+
+    &__hamburger {
+        font-size: 2em;
+    }
+}
+
 @include media-breakpoint-up(md){
     .header__flexbox {
         flex-direction: row;
+    }
+
+    .main-nav {
+        a {
+            display: inline-block;
+        }
+    }
+
+    .mobile-nav {
+        display: none;
     }
 }

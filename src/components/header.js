@@ -9,7 +9,9 @@ export default function Header() {
                 <div className="header__flexbox__icon">
                     <img src={LeafIcon} alt="leaf" />
                 </div>
-                <Navigation />
+                <div className="header__flexbox__nav">
+                    <Navigation />
+                </div>
             </div>
         </div>
     );
