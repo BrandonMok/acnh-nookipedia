@@ -22,6 +22,6 @@ export default function Fish() {
     }, [apiData]);
 
     return (
-        <ItemGrid itemList={fishList} area="Fish" />
+        <ItemGrid itemList={fishList} area="fish" />
     )
 }

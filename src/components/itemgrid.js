@@ -9,7 +9,7 @@ export default function ItemGrid({itemList, area}) {
                 <div className='col-12 pt-4 pb-4 item-grid__list'>
                     { itemList.length > 0 ? (
                         itemList.map((item) => {
-                            let path = "/fish/" + item[1].id;
+                            let path = "/" + area +"/" + item[1].id;
 
                             return (
                                 <Link to={path}>

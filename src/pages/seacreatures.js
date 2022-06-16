@@ -22,6 +22,6 @@ export default function SeaCreatures() {
     }, [apiData]);
 
     return (
-        <ItemGrid itemList={seaCreaturesList} area="Sea Creatures" />
+        <ItemGrid itemList={seaCreaturesList} area="sea" />
     );
 }

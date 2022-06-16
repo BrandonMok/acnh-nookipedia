@@ -24,7 +24,7 @@ export default function Bugs() {
     return (
         <ItemGrid 
             itemList={bugList} 
-            area="Bugs"
+            area="bugs"
         />
     );
 }
