@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import ItemGrid from '../components/itemgrid';
+import Search from '../components/search';
 
 export default function Bugs() {
     const [bugList, updateBugList] = useState([]);
@@ -22,9 +23,9 @@ export default function Bugs() {
     }, [apiData]);
 
     return (
-        <ItemGrid 
-            itemList={bugList} 
-            area="bugs"
-        />
+        <>
+            <Search list={bugList} updateList={updateBugList} />
+            <ItemGrid itemList={bugList} area="bugs"/>
+        </>
     );
 }

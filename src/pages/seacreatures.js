@@ -1,5 +1,6 @@
 import React, {useEffect, useState, useMemo} from 'react';
 import ItemGrid from '../components/itemgrid';        
+import Search from '../components/search';
 
 export default function SeaCreatures() {
     const [seaCreaturesList, updateSeaCreaturesList] = useState([]);
@@ -22,6 +23,9 @@ export default function SeaCreatures() {
     }, [apiData]);
 
     return (
-        <ItemGrid itemList={seaCreaturesList} area="sea" />
+        <>
+            <Search list={seaCreaturesList} updateList={updateSeaCreaturesList} />
+            <ItemGrid itemList={seaCreaturesList} area="sea" />
+        </>
     );
 }
