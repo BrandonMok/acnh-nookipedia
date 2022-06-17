@@ -1,0 +1,43 @@
+.search {
+    padding-top: 2em;
+    
+    &__form {
+        display: flex;
+        justify-content: center;
+
+        &__input {
+            background-color: $tan;
+            border: 2px solid $brown;
+            border-radius: 10px;
+        }
+
+        &__submit {
+            border-radius: 10px;
+            background-color: $dark-green;
+            border: 2px solid $light-green;
+            padding: .5em 1em;
+
+            &:hover {
+                background-color: $light-green;
+                border-color: $dark-green;
+                font-weight: bold;
+            }
+        }
+
+        & > * {
+            margin: 0 .25em;
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .search__form {
+        &__input {
+            min-width: 20em;
+        }
+
+        & > * {
+            margin: 0 1em;
+        }
+    }
+}
