@@ -1,6 +1,13 @@
 import React, {useRef} from 'react';
 
-export default function Search({list, updateList}) {
+/**
+ * Search
+ * Search functionality to filter a prop list of items based on a search term.
+ * @param list - current state value from a specific area (e.g. fish, bugs, etc.)
+ * @param backup - ref variable value that is the total list of a specific area (backup / original list that's left untouched from any array mutations)
+ * @param updateList - state variable update function
+ */
+export default function Search({list, backup, updateList}) {
     const textInput = useRef();
 
     function inputSanitize(s) {
@@ -29,8 +36,11 @@ export default function Search({list, updateList}) {
                 updateList([]);
             }
         }
+        else {
+            // empty string, need to reset list to full list...
+            updateList(backup);
+        }
     }
-
 
     return (   
         <div className='container search'>

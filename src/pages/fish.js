@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useMemo, useRef} from 'react';
 import ItemGrid from '../components/itemgrid';
 import Search from '../components/search';
+import NoResults from '../components/noResults';
 
 export default function Fish() {
     let fishbackup = useRef(); // will always keep ALL fish.. 
@@ -27,12 +28,12 @@ export default function Fish() {
 
     return (
         <>
-            <Search list={fishList} updateList={updateFishList} />
+            <Search list={fishList} backup={fishbackup.current} updateList={updateFishList} />
 
             {fishList.length > 0 ? (
                 <ItemGrid itemList={fishList} area="fish" />
             ): (
-                {/* show no results message... may make a "no results found" component */}
+                <NoResults />
             )}
         </>
     )
