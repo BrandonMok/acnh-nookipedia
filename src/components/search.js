@@ -20,10 +20,11 @@ export default function Search({list, backup, updateList}) {
         const searchTerm = textInput.current.value;
 
         if (searchTerm !== "") {
-            const validInput = inputSanitize(searchTerm);
+            const validInput = inputSanitize(searchTerm).toLowerCase();
     
             let filteredList = list.filter((item) => {
                 let itemName = item[1].name["name-USen"].toString().toLowerCase();
+
                 return itemName.toLowerCase().includes(validInput);
             });
 
@@ -38,8 +39,7 @@ export default function Search({list, backup, updateList}) {
     return (   
         <div className='container search'>
             <form className='search__form'>
-                <input type="text" placeholder='Enter term here...' className='search__form__input' ref={textInput} onChange={handleSearch} />
-                {/* <button type="submit" onClick={handleSearch} className='search__form__submit'>Submit</button> */}
+                <input type="text" placeholder='Enter name...' className='search__form__input' ref={textInput} onChange={handleSearch} />
             </form>
         </div>
     );
