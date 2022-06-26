@@ -1,23 +1,30 @@
-import React from 'react';
+import React, {useRef} from 'react';
 
-export default function Search({list, updateFishList}) {
-    // take prop: list
-    // sort through this list and return the found item
+export default function Search({list, updateList}) {
+    const textInput = useRef();
+
+    function inputSanitize(s) {
+        return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
 
     function handleSearch(e) {
         e.preventDefault();
 
-        // take search term, sanitize, and then look for object that matches it, return
+        const input = inputSanitize(textInput.current.value);
 
-        // once item is found or not, call 'updateFishList" which is a function as a prop from parent
-        // this function (the updating State function) will update the state and update the UI
+        let filteredList = list.filter((item) => {
+            let itemName = item[1].name["name-USen"].toString().toLowerCase();
+            return itemName.toLowerCase().includes(input);
+        });
+
+        updateList(filteredList);
     }
 
 
     return (   
         <div className='container search'>
             <form className='search__form'>
-                <input type="text" placeholder='Enter term here...' className='search__form__input' />
+                <input type="text" placeholder='Enter term here...' className='search__form__input' ref={textInput} />
                 <button type="submit" onClick={handleSearch} className='search__form__submit'>Submit</button>
             </form>
         </div>
