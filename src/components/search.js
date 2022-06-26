@@ -23,15 +23,30 @@ export default function Search({fullList, updateList}) {
             const searchTerm = textInput.current.value;
 
             if (searchTerm !== "") {
-                const validInput = inputSanitize(searchTerm).trim().toLowerCase();
-        
-                let filteredList = fullList.filter((item) => {
-                    let itemName = item[1].name["name-USen"].toString().toLowerCase();
-    
-                    return itemName.toLowerCase().includes(validInput);
-                });
-    
-                updateList(filteredList);
+                let sanitizedInput = inputSanitize(searchTerm).trim();
+
+                if (!isNaN(sanitizedInput)) {
+                    // number value - only numeric value is the price
+                    let userInputNum = parseInt(sanitizedInput);
+
+                    let filteredNumList = fullList.filter((item) => {
+                        let itemPrice = item[1].price;
+                        return itemPrice === userInputNum;
+                    });
+
+                    updateList(filteredNumList);
+                }
+                else {
+                    // string values
+                    let validInput = sanitizedInput.toLowerCase();
+            
+                    let filteredList = fullList.filter((item) => {
+                        let itemName = item[1].name["name-USen"].toString().toLowerCase();
+                        return itemName.toLowerCase().includes(validInput);
+                    });
+
+                    updateList(filteredList);
+                }
             }
             else {
                 // empty string, need to reset list to full list...
@@ -44,7 +59,7 @@ export default function Search({fullList, updateList}) {
         <div className='container search'>
             <form className='search__form'>
                 <input type="text" 
-                    placeholder='Enter name...' 
+                    placeholder='Enter name or price...' 
                     className='search__form__input' 
                     ref={textInput} 
                     onChange={handleSearch} 
