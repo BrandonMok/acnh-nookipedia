@@ -10,14 +10,25 @@ export default function Search({list, updateList}) {
     function handleSearch(e) {
         e.preventDefault();
 
-        const input = inputSanitize(textInput.current.value);
+        const searchTerm = textInput.current.value;
 
-        let filteredList = list.filter((item) => {
-            let itemName = item[1].name["name-USen"].toString().toLowerCase();
-            return itemName.toLowerCase().includes(input);
-        });
+        if (searchTerm !== "") {
+            const validInput = inputSanitize(searchTerm);
+    
+            let filteredList = list.filter((item) => {
+                let itemName = item[1].name["name-USen"].toString().toLowerCase();
+                return itemName.toLowerCase().includes(validInput);
+            });
 
-        updateList(filteredList);
+            // check if the filtered array contains data.
+            if (filteredList.length > 0) {
+                updateList(filteredList);
+            }
+            else {
+                // no results filtered.
+                updateList([]);
+            }
+        }
     }
 
 
