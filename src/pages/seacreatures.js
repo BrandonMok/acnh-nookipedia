@@ -1,8 +1,10 @@
-import React, {useEffect, useState, useMemo} from 'react';
+import React, {useEffect, useState, useMemo, useRef} from 'react';
 import ItemGrid from '../components/itemgrid';        
 import Search from '../components/search';
+import NoResults from '../components/noResults';
 
 export default function SeaCreatures() {
+    let seaCreatureBackup = useRef();
     const [seaCreaturesList, updateSeaCreaturesList] = useState([]);
     const apiData = useMemo(async () => fetchSeaCreatures(), []);
 
@@ -16,6 +18,8 @@ export default function SeaCreatures() {
         .then((resp) => {
             const respArr = Array.from(Object.entries(resp));
             updateSeaCreaturesList(respArr);
+
+            seaCreatureBackup.current = respArr;
         })
         .catch((error) => {
             console.log(error);
@@ -24,8 +28,13 @@ export default function SeaCreatures() {
 
     return (
         <>
-            <Search list={seaCreaturesList} updateList={updateSeaCreaturesList} />
-            <ItemGrid itemList={seaCreaturesList} area="sea" />
+            <Search list={seaCreaturesList} backup={seaCreatureBackup} updateList={updateSeaCreaturesList} />
+            
+            {seaCreaturesList.length > 0 ? (
+                <ItemGrid itemList={seaCreaturesList} area="sea" />
+            ) : (
+                <NoResults />
+            )}
         </>
     );
 }

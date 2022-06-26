@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import ItemGrid from '../components/itemgrid';
 import Search from '../components/search';
+import NoResults from '../components/noResults';
 
 export default function Bugs() {
+    let bugBackup = useRef();
     const [bugList, updateBugList] = useState([]);
     const apiData = useMemo(async () => fetchBugData(), []);
 
@@ -16,6 +18,8 @@ export default function Bugs() {
         .then((resp) => {
             const respArr = Array.from(Object.entries(resp));
             updateBugList(respArr);
+
+            bugBackup.current = respArr;
         })
         .catch((error) => {
             console.log(error);
@@ -24,8 +28,13 @@ export default function Bugs() {
 
     return (
         <>
-            <Search list={bugList} updateList={updateBugList} />
-            <ItemGrid itemList={bugList} area="bugs"/>
+            <Search list={bugList} backup={bugBackup.current} updateList={updateBugList} />
+
+            {bugList.length > 0 ? (
+                <ItemGrid itemList={bugList} area="bugs"/>
+            ): (
+                <NoResults />
+            )}
         </>
     );
 }

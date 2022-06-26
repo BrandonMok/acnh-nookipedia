@@ -20,7 +20,7 @@ export default function Search({list, backup, updateList}) {
         const searchTerm = textInput.current.value;
 
         if (searchTerm !== "") {
-            const validInput = inputSanitize(searchTerm).toLowerCase();
+            const validInput = inputSanitize(searchTerm).trim().toLowerCase();
     
             let filteredList = list.filter((item) => {
                 let itemName = item[1].name["name-USen"].toString().toLowerCase();
