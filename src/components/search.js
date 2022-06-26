@@ -44,7 +44,17 @@ export default function Search({fullList, updateList}) {
             
                     let filteredList = fullList.filter((item) => {
                         let itemName = item[1].name["name-USen"].toString().toLowerCase();
-                        return itemName.toLowerCase().includes(validInput);
+                        let shadow = item[1].shadow ? item[1].shadow.toString().toLowerCase() : undefined;
+
+                        if (itemName.includes(validInput)) {
+                            return itemName.includes(validInput);
+                        }
+                        else if (shadow !== undefined && shadow.includes(validInput)) {
+                            return shadow.includes(validInput)
+                        }
+                        else {
+                            return null;
+                        }
                     });
 
                     updateList(filteredList);
