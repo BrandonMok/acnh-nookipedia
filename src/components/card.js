@@ -1,5 +1,14 @@
 import React from 'react';
 
+/**
+ * Card
+ * Reusable component to display content into a card.
+ * @param name - name of item
+ * @param price - price of item
+ * @param icon_uri - URI of icon to display
+ * @param shadow? - shadow of item (optional - specific to fish)
+ * @returns 
+ */
 export default function Card({name, price, icon_uri, shadow}) {
     return (
         <div className='card'>

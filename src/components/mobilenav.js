@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 
+/**
+ * MobileNav
+ * Contains markup and logic to show/hide a mobile specific navigation.
+ */
 export default function MobileNav() {
     const [navShow, updateNavShow] = useState(false);
 

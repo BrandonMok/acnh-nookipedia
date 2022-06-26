@@ -2,6 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Card from './card';
 
+/**
+ * ItemGrid
+ * Displays a list of items into a grid.
+ * @param itemList - list of items to display
+ * @param area - particular area that list is related to (e.g. Fish, bugs, etc.)
+ * @returns 
+ */
 export default function ItemGrid({itemList, area}) {
     return (
         <div className='container item-grid'>

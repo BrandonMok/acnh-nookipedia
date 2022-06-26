@@ -27,14 +27,7 @@ export default function Search({list, backup, updateList}) {
                 return itemName.toLowerCase().includes(validInput);
             });
 
-            // check if the filtered array contains data.
-            if (filteredList.length > 0) {
-                updateList(filteredList);
-            }
-            else {
-                // no results filtered.
-                updateList([]);
-            }
+            updateList(filteredList);
         }
         else {
             // empty string, need to reset list to full list...

@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+/**
+ * Navigation
+ * Contains markup and Links to display a navigation.
+ */
 export default function Navigation() {
     return (
         <nav className='main-nav'>
