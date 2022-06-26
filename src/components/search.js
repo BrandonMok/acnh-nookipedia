@@ -39,7 +39,12 @@ export default function Search({list, backup, updateList}) {
     return (   
         <div className='container search'>
             <form className='search__form'>
-                <input type="text" placeholder='Enter name...' className='search__form__input' ref={textInput} onChange={handleSearch} />
+                <input type="text" 
+                    placeholder='Enter name...' 
+                    className='search__form__input' 
+                    ref={textInput} 
+                    onChange={handleSearch} 
+                />
             </form>
         </div>
     );

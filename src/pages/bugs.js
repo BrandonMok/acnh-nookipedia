@@ -30,11 +30,11 @@ export default function Bugs() {
         <>
             <Search list={bugList} backup={bugBackup.current} updateList={updateBugList} />
 
-            {bugList.length > 0 ? (
-                <ItemGrid itemList={bugList} area="bugs"/>
-            ): (
+            {bugList.length > 0 ?
+                <ItemGrid itemList={bugList} />
+            :
                 <NoResults />
-            )}
+            }
         </>
     );
 }

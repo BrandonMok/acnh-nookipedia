@@ -30,11 +30,11 @@ export default function SeaCreatures() {
         <>
             <Search list={seaCreaturesList} backup={seaCreatureBackup.current} updateList={updateSeaCreaturesList} />
             
-            {seaCreaturesList.length > 0 ? (
-                <ItemGrid itemList={seaCreaturesList} area="sea" />
-            ) : (
+            {seaCreaturesList.length > 0 ? 
+                <ItemGrid itemList={seaCreaturesList} />
+            :
                 <NoResults />
-            )}
+            }
         </>
     );
 }

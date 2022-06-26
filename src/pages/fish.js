@@ -19,7 +19,7 @@ export default function Fish() {
             const respArr = Array.from(Object.entries(resp));
             updateFishList(respArr);
 
-            fishbackup.current = respArr; // useRef variable to keep value even through renderings
+            fishbackup.current = respArr; // useRef variable to persist value.
         })
         .catch((error) => {
             console.log(error);
@@ -30,11 +30,11 @@ export default function Fish() {
         <>
             <Search list={fishList} backup={fishbackup.current} updateList={updateFishList} />
 
-            {fishList.length > 0 ? (
-                <ItemGrid itemList={fishList} area="fish" />
-            ): (
+            {fishList.length > 0 ? 
+                <ItemGrid itemList={fishList} />
+            : 
                 <NoResults />
-            )}
+            } 
         </>
     )
 }
