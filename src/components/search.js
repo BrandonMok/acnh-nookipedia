@@ -14,6 +14,8 @@ export default function Search({fullList, updateList}) {
         return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     }
 
+    // [TODO] Fix performance here
+    // having search called on onChange causes it to fire multiple times...
     function handleSearch(e) {
         e.preventDefault();
 
@@ -52,7 +54,7 @@ export default function Search({fullList, updateList}) {
                 // empty string, need to reset list to full list...
                 updateList(fullList);
             }
-        }, 1000);
+        }, 1500);
     }
 
     return (   
