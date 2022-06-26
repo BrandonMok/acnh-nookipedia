@@ -28,7 +28,7 @@ export default function Fish() {
 
     return (
         <>
-            <Search list={fishList} backup={fishbackup.current} updateList={updateFishList} />
+            <Search fullList={fishbackup.current} updateList={updateFishList} />
 
             {fishList.length > 0 ? 
                 <ItemGrid itemList={fishList} />

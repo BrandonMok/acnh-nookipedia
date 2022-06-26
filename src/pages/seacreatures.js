@@ -28,7 +28,7 @@ export default function SeaCreatures() {
 
     return (
         <>
-            <Search list={seaCreaturesList} backup={seaCreatureBackup.current} updateList={updateSeaCreaturesList} />
+            <Search fullList={seaCreatureBackup.current} updateList={updateSeaCreaturesList} />
             
             {seaCreaturesList.length > 0 ? 
                 <ItemGrid itemList={seaCreaturesList} />

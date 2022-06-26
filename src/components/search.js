@@ -7,7 +7,7 @@ import React, {useRef} from 'react';
  * @param backup - ref variable value that is the total list of a specific area (backup / original list that's left untouched from any array mutations)
  * @param updateList - state variable update function
  */
-export default function Search({list, backup, updateList}) {
+export default function Search({fullList, updateList}) {
     const textInput = useRef();
 
     function inputSanitize(s) {
@@ -17,23 +17,27 @@ export default function Search({list, backup, updateList}) {
     function handleSearch(e) {
         e.preventDefault();
 
-        const searchTerm = textInput.current.value;
+        // Wait a bit before doing the filtering to give user time to enter full name.
+        // otherwise, code performance would hurt with the code filtering the list each time a letter is entered.
+        setTimeout(() => {
+            const searchTerm = textInput.current.value;
 
-        if (searchTerm !== "") {
-            const validInput = inputSanitize(searchTerm).trim().toLowerCase();
+            if (searchTerm !== "") {
+                const validInput = inputSanitize(searchTerm).trim().toLowerCase();
+        
+                let filteredList = fullList.filter((item) => {
+                    let itemName = item[1].name["name-USen"].toString().toLowerCase();
     
-            let filteredList = list.filter((item) => {
-                let itemName = item[1].name["name-USen"].toString().toLowerCase();
-
-                return itemName.toLowerCase().includes(validInput);
-            });
-
-            updateList(filteredList);
-        }
-        else {
-            // empty string, need to reset list to full list...
-            updateList(backup);
-        }
+                    return itemName.toLowerCase().includes(validInput);
+                });
+    
+                updateList(filteredList);
+            }
+            else {
+                // empty string, need to reset list to full list...
+                updateList(fullList);
+            }
+        }, 1000);
     }
 
     return (   

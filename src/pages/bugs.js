@@ -28,7 +28,7 @@ export default function Bugs() {
 
     return (
         <>
-            <Search list={bugList} backup={bugBackup.current} updateList={updateBugList} />
+            <Search fullList={bugBackup.current} updateList={updateBugList} />
 
             {bugList.length > 0 ?
                 <ItemGrid itemList={bugList} />
