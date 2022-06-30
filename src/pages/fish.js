@@ -4,9 +4,9 @@ import Search from '../components/search';
 import NoResults from '../components/noResults';
 
 export default function Fish() {
-    let fishbackup = useRef(); // will always keep ALL fish.. 
+    let fishbackup = useRef();
     const [fishList, updateFishList] = useState([]);    // fishList state var will display all or one (Search cmp may change fishList)
-    const apiData = useMemo(async () => fetchFishData(), []);
+    const apiData = useMemo(async () => await fetchFishData(), []);
 
     async function fetchFishData() {
         const res = await fetch('https://acnhapi.com/v1/fish');

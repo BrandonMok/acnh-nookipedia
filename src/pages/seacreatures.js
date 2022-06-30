@@ -6,7 +6,7 @@ import NoResults from '../components/noResults';
 export default function SeaCreatures() {
     let seaCreatureBackup = useRef();
     const [seaCreaturesList, updateSeaCreaturesList] = useState([]);
-    const apiData = useMemo(async () => fetchSeaCreatures(), []);
+    const apiData = useMemo(async () => await fetchSeaCreatures(), []);
 
     async function fetchSeaCreatures() {
         const response = await fetch('https://acnhapi.com/v1/sea');

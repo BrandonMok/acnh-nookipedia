@@ -6,7 +6,7 @@ import NoResults from '../components/noResults';
 export default function Bugs() {
     let bugBackup = useRef();
     const [bugList, updateBugList] = useState([]);
-    const apiData = useMemo(async () => fetchBugData(), []);
+    const apiData = useMemo(async () => await fetchBugData(), []);
 
     async function fetchBugData() {
         const response = await fetch('https://acnhapi.com/v1/bugs')
