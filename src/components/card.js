@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * Card
@@ -23,4 +24,11 @@ export default function Card({name, price, icon_uri, shadow}) {
             </div>
         </div>
     );
+}
+
+Card.propTypes = {
+    name: PropTypes.string,
+    price: PropTypes.number,
+    icon_uri: PropTypes.string,
+    shadow: PropTypes.string,
 }

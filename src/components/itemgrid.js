@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Card from './card';
 
 /**
@@ -34,4 +35,8 @@ export default function ItemGrid({itemList}) {
             )}
         </div>
     );
+}
+
+ItemGrid.propTypes = {
+    itemList: PropTypes.array
 }

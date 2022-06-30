@@ -1,4 +1,5 @@
 import React, {useRef} from 'react';
+import Proptypes from 'prop-types';
 
 /**
  * Search
@@ -71,4 +72,9 @@ export default function Search({fullList, updateList}) {
             </form>
         </div>
     );
+}
+
+Search.propTypes = {
+    fullList: Proptypes.array,
+    updateList: Proptypes.func
 }
