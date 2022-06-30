@@ -9,12 +9,13 @@ import Card from './card';
  * @param area - particular area that list is related to (e.g. Fish, bugs, etc.)
  * @returns 
  */
-export default function ItemGrid({itemList, area}) {
+export default function ItemGrid({itemList}) {
     return (
         <div className='container item-flexbox'>
             { itemList.length > 0 ? (
                 itemList.map((item) => {
-                    let path = "/" + area +"/" + item[1].id;
+                    // let path = "/" + area +"/" + item[1].id;
+                    let path = "/";
 
                     return (
                         <Link to={path}>
