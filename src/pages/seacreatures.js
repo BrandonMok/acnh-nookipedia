@@ -31,7 +31,7 @@ export default function SeaCreatures() {
             <Search fullList={seaCreatureBackup.current} updateList={updateSeaCreaturesList} />
             
             {seaCreaturesList.length > 0 ? 
-                <ItemGrid itemList={seaCreaturesList} />
+                <ItemGrid itemList={seaCreaturesList} area="sea" />
             :
                 <NoResults />
             }
