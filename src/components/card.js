@@ -27,7 +27,7 @@ export default function Card({name, price, icon_uri, shadow}) {
 }
 
 Card.propTypes = {
-    name: PropTypes.string,
+    name: PropTypes.object,
     price: PropTypes.number,
     icon_uri: PropTypes.string,
     shadow: PropTypes.string,

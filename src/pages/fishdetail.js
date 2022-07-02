@@ -5,7 +5,7 @@ export default function FishDetail() {
     // ID passed in param
     const {id} = useParams();
 
-    const [fishData, updateFishData] = useState(null);
+    const [fish, updateFish] = useState({});
     const apiData = useMemo(async () => await fetchFish(), []);
 
     async function fetchFish() {
@@ -16,26 +16,23 @@ export default function FishDetail() {
     useEffect(() => {
         apiData
         .then((resp) => {
-            console.log('response');
-            console.log(resp);
-            console.log(resp["name"]["name-USen"]);
-            updateFishData(resp);
+            updateFish(resp);
 
-            console.log(fishData);
+            console.log(resp);
+        })
+        .catch((error) => {
+            console.log(error);
         });
-        // .catch((error) => {
-        //     console.log(error);
-        // });
     }, [apiData]);
 
     return (
         <div className="container fish-detail">
             <div className="fish-detail__image-container">
-                {/* <img src={fishData["image_uri"]} alt={fishData["name"]["name"]} /> */}
+                {/* <img src={fish["image_uri"]} alt={fish["name"]["name"]} /> */}
             </div>
             <div className="fish-detail__fish-info">
-                {/* <h1>{fishData["name"]["name-USen"]}</h1> */}
-                {/* <p>{fishData["availability"]["location"]}</p> */}
+                <h1>{ fish["name"]["name-USen"] }</h1>
+                <p>{ fish["availability"]["location"] }</p>
             </div>
         </div>
     );
