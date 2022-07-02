@@ -1,12 +1,9 @@
 .fish-detail {
     display: flex;
     justify-content: center;
-    margin: 2em 0;
 
     &__container {
         background-color: $tan;
-        border-radius: 2em;
-        max-width: 50vw;
         text-align: center;
     
         display: flex;
@@ -27,13 +24,37 @@
         &__fish-info {
             background-color: $brown;
             width: 100%;
-            border-radius: 0 0 2em 2em;
             padding: 2em;
 
             &__tabular {
-                padding: 0 8em;
-
                 .row {
+                    margin: 1.5em 0;
+
+                    div:nth-child(1) {
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@include media-breakpoint-up(md) {
+    .fish-detail {
+        margin: 2em 0;
+
+        &__container {
+            border-radius: 2em;
+            max-width: 50vw;
+
+            &__fish-info {
+                border-radius: 0 0 2em 2em;
+
+               &__tabular {
+                  padding: 0 8em;
+
+                  .row {
                     & > div:nth-child(1) {
                         text-align: left;
                         font-weight: bold;
@@ -43,8 +64,8 @@
                         text-align: right;
                     }
                 }
+               }
             }
         }
     }
 }
-

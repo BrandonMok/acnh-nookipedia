@@ -87,7 +87,6 @@ export default function FishDetail() {
                                     <div className="col-12 col-md-6">{ fish.availability["month-northern"] }</div>
                                 </div>
                             )}
-
                             
                             {fish.availability["month-southern"] && (
                                 <div className="row">
@@ -95,19 +94,20 @@ export default function FishDetail() {
                                     <div className="col-12 col-md-6">{ fish.availability["month-southern"] }</div>
                                 </div>
                             )}
+
                             <div className="row">
                                 <div className="col-12 col-md-6">Price:</div>
                                 <div className="col-12 col-md-6">{ fish["price"] } bells</div>
                             </div>
                             <div className="row">
-                                <div className="col-12 col-md-6">CJ price:</div>
-                                <div className="col-12 col-md-6">{ fish["price-cj"] } bells</div>
+                                <div className="col-12">Catch Phrase</div>
+                                <div className="col-12">"{ fish["catch-phrase"] }"</div>
+                            </div>
+                            <div className="row">
+                                <div className="col-12">Musuem Phrase</div>
+                                <div className="col-12">"{ fish["museum-phrase"] }"</div>
                             </div>
                         </div>
-
-                        {/* <p>{ fish["catch-phrase"] }</p>
-
-                        <p>{ fish["museum-phrase"] }</p> */}
                     </div>
                 </div>
             </div>
