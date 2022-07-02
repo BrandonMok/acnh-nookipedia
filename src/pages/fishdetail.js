@@ -30,17 +30,22 @@ export default function FishDetail() {
     useEffect(() => {
         apiData
         .then((resp) => {
-            let northernAvail =  resp["availability"]["month-northern"];
-            let southernAvail =  resp["availability"]["month-southern"];
-
-            let northernNumArr = northernAvail.split('-');
-            let northernText = monthMap.get(northernNumArr[0]) + "-" + monthMap.get(northernNumArr[1]);
-
-            let southernNumArr = southernAvail.split('-');
-            let southernText = monthMap.get(southernNumArr[0]) + "-" + monthMap.get(southernNumArr[1]);
-
-            let updatedObj = {...resp, "availability": { ...resp["availability"], "month-northern": northernText, "month-southern": southernText}}
-            updateFish(updatedObj);
+            if (resp["availability"]["month-northern"] !== "" && resp["availability"]["month-southern"] !== "") {
+                let northernAvail =  resp["availability"]["month-northern"];
+                let southernAvail =  resp["availability"]["month-southern"];
+    
+                let northernNumArr = northernAvail.split('-');
+                let northernText = monthMap.get(northernNumArr[0]) + "-" + monthMap.get(northernNumArr[1]);
+    
+                let southernNumArr = southernAvail.split('-');
+                let southernText = monthMap.get(southernNumArr[0]) + "-" + monthMap.get(southernNumArr[1]);
+    
+                let updatedObj = {...resp, "availability": { ...resp["availability"], "month-northern": northernText, "month-southern": southernText}}
+                updateFish(updatedObj);
+            }
+            else {
+                updateFish(resp);
+            }
         })
         .catch((error) => {
             console.log(error);
@@ -68,14 +73,28 @@ export default function FishDetail() {
                                 <div className="col-12 col-md-6">Rarity:</div>
                                 <div className="col-12 col-md-6">{ fish["availability"]["rarity"] }</div>
                             </div>
-                            <div className="row">
-                                <div className="col-12 col-md-6">Northern Availability:</div>
-                                <div className="col-12 col-md-6">{ fish.availability["month-northern"] }</div>
-                            </div>
-                            <div className="row">
-                                <div className="col-12 col-md-6">Southern Availability:</div>
-                                <div className="col-12 col-md-6">{ fish.availability["month-southern"] }</div>
-                            </div>
+
+                            {fish["availability"]["time"] !== "" && (
+                                <div className="row">
+                                    <div className="col-12 col-md-6">Time:</div>
+                                    <div className="col-12 col-md-6">{ fish["availability"]["time"] }</div>
+                                </div>
+                            )}
+
+                            {fish.availability["month-northern"] && (
+                                <div className="row">
+                                    <div className="col-12 col-md-6">Northern Availability:</div>
+                                    <div className="col-12 col-md-6">{ fish.availability["month-northern"] }</div>
+                                </div>
+                            )}
+
+                            
+                            {fish.availability["month-southern"] && (
+                                <div className="row">
+                                    <div className="col-12 col-md-6">Southern Availability:</div>
+                                    <div className="col-12 col-md-6">{ fish.availability["month-southern"] }</div>
+                                </div>
+                            )}
                             <div className="row">
                                 <div className="col-12 col-md-6">Price:</div>
                                 <div className="col-12 col-md-6">{ fish["price"] } bells</div>
@@ -84,8 +103,6 @@ export default function FishDetail() {
                                 <div className="col-12 col-md-6">CJ price:</div>
                                 <div className="col-12 col-md-6">{ fish["price-cj"] } bells</div>
                             </div>
-
-                            {/* {fish["availability"]["time"] !== "" && <p>Time: { fish["availability"]["time"] } </p>} */}
                         </div>
 
                         {/* <p>{ fish["catch-phrase"] }</p>
