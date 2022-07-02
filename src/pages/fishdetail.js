@@ -1,6 +1,20 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useParams } from "react-router";
 
+let monthMap = new Map();
+monthMap.set('1', 'January');
+monthMap.set('2', 'February');
+monthMap.set('3', 'March');
+monthMap.set('4', 'April');
+monthMap.set('5', 'May');
+monthMap.set('6', 'June');
+monthMap.set('7', 'July');
+monthMap.set('8', 'August');
+monthMap.set('9', 'September');
+monthMap.set('10', 'October');
+monthMap.set('11', 'November');
+monthMap.set('12', 'December');
+
 export default function FishDetail() {
     // ID passed in param
     const {id} = useParams();
@@ -12,20 +26,6 @@ export default function FishDetail() {
         const response = await fetch(`https://acnhapi.com/v1/fish/${id}`);
         return await response.json();
     }
-
-    let monthMap = new Map();
-    monthMap.set('1', 'January');
-    monthMap.set('2', 'February');
-    monthMap.set('3', 'March');
-    monthMap.set('4', 'April');
-    monthMap.set('5', 'May');
-    monthMap.set('6', 'June');
-    monthMap.set('7', 'July');
-    monthMap.set('8', 'August');
-    monthMap.set('9', 'September');
-    monthMap.set('10', 'October');
-    monthMap.set('11', 'November');
-    monthMap.set('12', 'December');
 
     useEffect(() => {
         apiData

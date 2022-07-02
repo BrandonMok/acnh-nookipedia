@@ -2,9 +2,11 @@ import React, {useEffect, useState, useMemo, useRef} from 'react';
 import ItemGrid from '../components/itemgrid';        
 import Search from '../components/search';
 import NoResults from '../components/noResults';
+import Loading from '../components/loading';
 
 export default function SeaCreatures() {
     let seaCreatureBackup = useRef();
+    const [loading, updateLoading] = useState(true);
     const [seaCreaturesList, updateSeaCreaturesList] = useState([]);
     const apiData = useMemo(async () => await fetchSeaCreatures(), []);
 
@@ -18,6 +20,7 @@ export default function SeaCreatures() {
         .then((resp) => {
             const respArr = Array.from(Object.entries(resp));
             updateSeaCreaturesList(respArr);
+            updateLoading(false);
 
             seaCreatureBackup.current = respArr;
         })
@@ -26,15 +29,20 @@ export default function SeaCreatures() {
         });
     }, [apiData]);
 
-    return (
-        <>
-            <Search fullList={seaCreatureBackup.current} updateList={updateSeaCreaturesList} />
-            
-            {seaCreaturesList.length > 0 ? 
-                <ItemGrid itemList={seaCreaturesList} area="sea" />
-            :
-                <NoResults />
-            }
-        </>
-    );
+    if (loading) {
+        return(<Loading />);
+    }
+    else {
+        return (
+            <>
+                <Search fullList={seaCreatureBackup.current} updateList={updateSeaCreaturesList} />
+                
+                {seaCreaturesList.length > 0 ? 
+                    <ItemGrid itemList={seaCreaturesList} area="sea" />
+                :
+                    <NoResults />
+                }
+            </>
+        );
+    }
 }
