@@ -62,7 +62,7 @@ export default function FishDetail() {
             <div className="fish-detail">
                 <div className="fish-detail__container">
                     <div className="fish-detail__container__image-container">
-                        <img src={ fish["image_uri"] } alt={ fish["name"] } width="600px" />
+                        <img src={ fish["image_uri"] } alt={ fish["name"] } />
                     </div>
                     <div className="fish-detail__container__fish-info">
 

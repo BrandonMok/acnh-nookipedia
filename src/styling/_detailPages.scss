@@ -11,9 +11,7 @@
         flex-direction: column;
 
         &__image-container {
-            text-align: center;
-            width: 90%;
-            height: 90%;
+            overflow: hidden;
 
             img {
                 width: 100%;
