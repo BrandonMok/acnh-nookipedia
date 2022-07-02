@@ -29,6 +29,21 @@
             width: 100%;
             border-radius: 0 0 2em 2em;
             padding: 2em;
+
+            &__tabular {
+                padding: 0 8em;
+
+                .row {
+                    & > div:nth-child(1) {
+                        text-align: left;
+                        font-weight: bold;
+                    }
+
+                    & > div:nth-child(2) {
+                        text-align: right;
+                    }
+                }
+            }
         }
     }
 }

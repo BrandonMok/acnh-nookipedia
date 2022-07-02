@@ -56,16 +56,41 @@ export default function FishDetail() {
                         <img src={ fish["image_uri"] } alt={ fish["name"]["name-USen"] } width="600px" />
                     </div>
                     <div className="fish-detail__container__fish-info">
+
                         <h1>{ fish["name"]["name-USen"] }</h1>
-                        <p>Location: { fish["availability"]["location"] }</p>
-                        <p>Rarity: { fish["availability"]["rarity"] } </p>
 
-                        {fish["availability"]["time"] !== "" && <p>Time: { fish["availability"]["time"] } </p>}
+                        <div className="fish-detail__container__fish-info__tabular">
+                            <div className="row">
+                                <div className="col-12 col-md-6">Location:</div>
+                                <div className="col-12 col-md-6">{ fish["availability"]["location"] }</div>
+                            </div>
+                            <div className="row">
+                                <div className="col-12 col-md-6">Rarity:</div>
+                                <div className="col-12 col-md-6">{ fish["availability"]["rarity"] }</div>
+                            </div>
+                            <div className="row">
+                                <div className="col-12 col-md-6">Northern Availability:</div>
+                                <div className="col-12 col-md-6">{ fish.availability["month-northern"] }</div>
+                            </div>
+                            <div className="row">
+                                <div className="col-12 col-md-6">Southern Availability:</div>
+                                <div className="col-12 col-md-6">{ fish.availability["month-southern"] }</div>
+                            </div>
+                            <div className="row">
+                                <div className="col-12 col-md-6">Price:</div>
+                                <div className="col-12 col-md-6">{ fish["price"] } bells</div>
+                            </div>
+                            <div className="row">
+                                <div className="col-12 col-md-6">CJ price:</div>
+                                <div className="col-12 col-md-6">{ fish["price-cj"] } bells</div>
+                            </div>
 
-                        <p>Northern Availability: { fish.availability["month-northern"] }</p>
-                        <p>Southern Availability: { fish.availability["month-southern"] }</p>
+                            {/* {fish["availability"]["time"] !== "" && <p>Time: { fish["availability"]["time"] } </p>} */}
+                        </div>
 
-                        <p>{ fish["museum-phrase"] }</p>
+                        {/* <p>{ fish["catch-phrase"] }</p>
+
+                        <p>{ fish["museum-phrase"] }</p> */}
                     </div>
                 </div>
             </div>
