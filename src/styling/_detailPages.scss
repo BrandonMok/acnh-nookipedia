@@ -97,6 +97,15 @@
             &__fish-info {
                 &__tabular {
                     padding: 0 8em;
+
+                    .quote-row {
+                        div:nth-child(1) {
+                            text-align: center;
+                        }
+                        div:nth-child(2) {
+                            text-align: center;
+                        }
+                    }
                 }
             }
         }

@@ -103,12 +103,12 @@ export default function FishDetail() {
                                 <div className="col-12 col-md-6">Price:</div>
                                 <div className="col-12 col-md-6">{ fish["price"] } bells</div>
                             </div>
-                            <div className="row">
+                            <div className="row quote-row">
                                 <div className="col-12">Catch Phrase</div>
                                 <div className="col-12">"{ fish["catch-phrase"] }"</div>
                             </div>
-                            <div className="row">
-                                <div className="col-12">Musuem Phrase</div>
+                            <div className="row quote-row">
+                                <div className="col-12">Museum Phrase</div>
                                 <div className="col-12">"{ fish["museum-phrase"] }"</div>
                             </div>
                         </div>
