@@ -30,6 +30,10 @@ export default function FishDetail() {
     useEffect(() => {
         apiData
         .then((resp) => {
+            let fishName = resp["name"]["name-USen"];
+            fishName = fishName.charAt(0).toUpperCase() + fishName.substring(1, fishName.length);
+            resp = {...resp, name: fishName};
+
             if (resp["availability"]["month-northern"] !== "" && resp["availability"]["month-southern"] !== "") {
                 let northernAvail =  resp["availability"]["month-northern"];
                 let southernAvail =  resp["availability"]["month-southern"];
@@ -58,11 +62,11 @@ export default function FishDetail() {
             <div className="fish-detail">
                 <div className="fish-detail__container">
                     <div className="fish-detail__container__image-container">
-                        <img src={ fish["image_uri"] } alt={ fish["name"]["name-USen"] } width="600px" />
+                        <img src={ fish["image_uri"] } alt={ fish["name"] } width="600px" />
                     </div>
                     <div className="fish-detail__container__fish-info">
 
-                        <h1>{ fish["name"]["name-USen"] }</h1>
+                        <h1>{ fish["name"] }</h1>
 
                         <div className="fish-detail__container__fish-info__tabular">
                             <div className="row">
