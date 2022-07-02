@@ -52,8 +52,6 @@
                 border-radius: 0 0 2em 2em;
 
                &__tabular {
-                  padding: 0 8em;
-
                   .row {
                     & > div:nth-child(1) {
                         text-align: left;
@@ -65,6 +63,41 @@
                     }
                 }
                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .fish-detail {
+        &__container {
+            &__fish-info {
+               &__tabular {
+                  padding: 0 4em;
+
+                  .row {
+                        div:nth-child(1) {
+                            text-align: left;
+                            font-weight: bold;
+                        }
+
+                        div:nth-child(2) {
+                            text-align: right;
+                        }
+                    }
+               }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .fish-detail {
+        &__container {
+            &__fish-info {
+                &__tabular {
+                    padding: 0 8em;
+                }
             }
         }
     }
