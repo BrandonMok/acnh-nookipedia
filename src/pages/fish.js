@@ -10,7 +10,6 @@ export default function Fish() {
     const [loading, updateLoading] = useState(true);
 
     const fetchFishData = useCallback(async() => {
-        console.log('test');
         const res = await fetch('https://acnhapi.com/v1/fish');
         return await res.json();
     }, []);
