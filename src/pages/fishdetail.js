@@ -15,9 +15,12 @@ monthMap.set('10', 'October');
 monthMap.set('11', 'November');
 monthMap.set('12', 'December');
 
-
+/**
+ * FishDetail
+ * Specific page to show more detailed info for a fish
+ * @param {id} - id of fish on route /fish/{id}
+ */
 export default function FishDetail() {
-    // ID passed in param
     const {id} = useParams();
     
     const [fish, updateFish] = useState({});
