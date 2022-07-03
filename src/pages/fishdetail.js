@@ -15,6 +15,7 @@ monthMap.set('10', 'October');
 monthMap.set('11', 'November');
 monthMap.set('12', 'December');
 
+
 export default function FishDetail() {
     // ID passed in param
     const {id} = useParams();
@@ -27,32 +28,51 @@ export default function FishDetail() {
         return await response.json();
     }
 
+    function monthNumToText(responseObj) {
+        let northernAvail =  responseObj["availability"]["month-northern"];
+        let southernAvail =  responseObj["availability"]["month-southern"];
+
+        let northernNumArr = northernAvail.split('-');
+        let northernText = monthMap.get(northernNumArr[0]) + "-" + monthMap.get(northernNumArr[1]);
+
+        let southernNumArr = southernAvail.split('-');
+        let southernText = monthMap.get(southernNumArr[0]) + "-" + monthMap.get(southernNumArr[1]);
+
+        // Update the key/values in the responseObj
+        responseObj = {
+            ...responseObj, 
+            "availability": { 
+                ...responseObj["availability"], 
+                "month-northern": northernText, 
+                "month-southern": southernText
+            }
+        }
+
+        return responseObj;
+    }
+
+    function capitalizeFirstChar(responseObj) {
+        let fishName = responseObj["name"]["name-USen"];
+        fishName = fishName.charAt(0).toUpperCase() + fishName.substring(1, fishName.length);
+        responseObj = {...responseObj, name: fishName};
+        return responseObj;
+    }
+
+
     useEffect(() => {
         apiData
         .then((resp) => {
-            let fishName = resp["name"]["name-USen"];
-            fishName = fishName.charAt(0).toUpperCase() + fishName.substring(1, fishName.length);
-            resp = {...resp, name: fishName};
+            // modify obj key for name to be user friendly
+            resp = capitalizeFirstChar(resp);
 
             if (resp["availability"]["month-northern"] !== "" && resp["availability"]["month-southern"] !== "") {
-                let northernAvail =  resp["availability"]["month-northern"];
-                let southernAvail =  resp["availability"]["month-southern"];
-    
-                let northernNumArr = northernAvail.split('-');
-                let northernText = monthMap.get(northernNumArr[0]) + "-" + monthMap.get(northernNumArr[1]);
-    
-                let southernNumArr = southernAvail.split('-');
-                let southernText = monthMap.get(southernNumArr[0]) + "-" + monthMap.get(southernNumArr[1]);
-    
-                let updatedObj = {...resp, "availability": { ...resp["availability"], "month-northern": northernText, "month-southern": southernText}}
-                updateFish(updatedObj);
+                // modify obj key to change the given month number to a text version (e.g. 1-5 becomes January-May),
+                resp = monthNumToText(resp);
+                updateFish(resp);
             }
             else {
                 updateFish(resp);
             }
-        })
-        .catch((error) => {
-            console.log(error);
         });
     }, [apiData]);
 
