@@ -58,7 +58,6 @@ export default function FishDetail() {
         return responseObj;
     }
 
-
     useEffect(() => {
         apiData
         .then((resp) => {

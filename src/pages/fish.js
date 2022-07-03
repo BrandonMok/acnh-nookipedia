@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useMemo, useRef} from 'react';
+import React, {useState, useEffect, useMemo, useRef, useCallback} from 'react';
 import ItemGrid from '../components/itemgrid';
 import Search from '../components/search';
 import NoResults from '../components/noResults';
@@ -7,14 +7,16 @@ import Loading from '../components/loading';
 export default function Fish() {
     let fishbackup = useRef();
     const [fishList, updateFishList] = useState([]);    // fishList state var will display all or one (Search cmp may change fishList)
-    const apiData = useMemo(async () => await fetchFishData(), []);
-
     const [loading, updateLoading] = useState(true);
 
-    async function fetchFishData() {
+    const fetchFishData = useCallback(async() => {
+        console.log('test');
         const res = await fetch('https://acnhapi.com/v1/fish');
         return await res.json();
-    }
+    }, []);
+
+    const apiData = useMemo(async() => await fetchFishData(), [fetchFishData]);
+
 
     useEffect(() => {
         apiData
