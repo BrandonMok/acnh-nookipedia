@@ -10,11 +10,7 @@ import PropTypes from 'prop-types';
  * @param shadow? - shadow of item (optional - specific to fish)
  */
 export default function Card({name, price, icon_uri, shadow}) {
-    const itemName = useRef(name);
-
-    useEffect(() => {
-        itemName.current = capitalizeFirstChar(itemName.current);
-    }, []);
+    const itemName = useRef(capitalizeFirstChar(name));
 
     function capitalizeFirstChar(itemName) {
         let nameArr = itemName.split(" ");
