@@ -1,6 +1,7 @@
 .header {
     background-color: $dark-green;
     padding: 1em;
+    box-shadow: 0 4px 2px -2px $dark-green;
 
     &__flexbox {
         @extend .container;

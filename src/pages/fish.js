@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useMemo, useRef, useCallback} from 'react';
+import React, {useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import ItemGrid from '../components/itemgrid';
 import Search from '../components/search';
 import NoResults from '../components/noResults';
@@ -31,6 +31,7 @@ export default function Fish() {
         })
     }, [apiData]);
 
+    
     if (loading) {
         return (<Loading />);
     }
