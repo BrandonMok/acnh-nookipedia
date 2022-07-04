@@ -75,11 +75,9 @@ export default function FishDetail() {
             if (resp["availability"]["month-northern"] !== "" && resp["availability"]["month-southern"] !== "") {
                 // modify obj key to change the given month number to a text version (e.g. 1-5 becomes January-May),
                 resp = monthNumToText(resp);
-                updateFish(resp);
             }
-            else {
-                updateFish(resp);
-            }
+                
+            updateFish(resp);
         });
     }, [apiData]);
 

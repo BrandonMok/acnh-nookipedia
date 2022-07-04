@@ -57,9 +57,9 @@ export default function BugDetail() {
     }
 
     function capitalizeFirstChar(responseObj) {
-        let fishName = responseObj["name"]["name-USen"];
+        let bugName = responseObj["name"]["name-USen"];
 
-        let nameArr = fishName.split(" ");
+        let nameArr = bugName.split(" ");
         nameArr = nameArr.map((namePart) => {
             return namePart.charAt(0).toUpperCase() + namePart.substring(1, namePart.length);
         });
@@ -70,15 +70,50 @@ export default function BugDetail() {
 
     useEffect(() => {
         fetchBugData()
-        .then((data) => {
-            console.log(data);
+        .then((resp) => {
+            resp = capitalizeFirstChar(resp);
+
+            if (resp["availability"]["month-northern"] !== "" && resp["availability"]["month-southern"] !== "") {
+                resp = monthNumToText(resp);
+            }
+            
+            updateBugData(resp);
         });
     }, []);
 
+    if (Object.keys(bugData).length !== 0) {
+        return (
+            <div className="bug-detail">
+                <div className="bug-detail__container">
+                    <div className="bug-detail__container__image-container">
+                        <img src={ bugData["image_uri"] } alt={ bugData["name"] } />
+                    </div>
+                    <div className="bug-detail__container__bug-info">
+                        <h1>{bugData["name"]}</h1>
+    
+                        <div className="bug-detail__container__bug-info__tabular">
+                            <div className="row">
+                                <div className="col-12 col-md-6">Location:</div>
+                                <div className="col-12 col-md-6">{bugData["availability"]["location"]}</div>
+                            </div>
+                            <div className="row">
+                                <div className="col-12 col-md-6">Rarity:</div>
+                                <div className="col-12 col-md-6">{bugData["availability"]["rarity"]}</div>
+                            </div>
 
-    return (
-        <div className="bug-detail">
-
-        </div>
-    );
+                            {bugData["availability"]["time"] && (
+                                <div className="row">
+                                    <div className="col-12 col-md-6">Time</div>
+                                    <div className="col-12 col-md-6">{bugData["availability"]["time"]}</div>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+    else {
+        return <></>
+    }
 }
