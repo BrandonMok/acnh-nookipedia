@@ -84,16 +84,16 @@ export default function FishDetail() {
 
     if (Object.keys(fish).length !== 0) {
         return (
-            <div className="fish-detail">
-                <div className="fish-detail__container">
-                    <div className="fish-detail__container__image-container">
+            <div className="detail">
+                <div className="detail__container">
+                    <div className="detail__container__image-container">
                         <img src={ fish["image_uri"] } alt={ fish["name"] } />
                     </div>
-                    <div className="fish-detail__container__fish-info">
+                    <div className="detail__container__info">
 
                         <h1>{ fish["name"] }</h1>
 
-                        <div className="fish-detail__container__fish-info__tabular">
+                        <div className="detail__container__info__tabular">
                             <div className="row">
                                 <div className="col-12 col-md-6">Location:</div>
                                 <div className="col-12 col-md-6">{ fish["availability"]["location"] }</div>

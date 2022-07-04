@@ -83,15 +83,15 @@ export default function BugDetail() {
 
     if (Object.keys(bugData).length !== 0) {
         return (
-            <div className="bug-detail">
-                <div className="bug-detail__container">
-                    <div className="bug-detail__container__image-container">
+            <div className="detail">
+                <div className="detail__container">
+                    <div className="detail__container__image-container">
                         <img src={ bugData["image_uri"] } alt={ bugData["name"] } />
                     </div>
-                    <div className="bug-detail__container__bug-info">
+                    <div className="detail__container__info">
                         <h1>{bugData["name"]}</h1>
     
-                        <div className="bug-detail__container__bug-info__tabular">
+                        <div className="detail__container__info__tabular">
                             <div className="row">
                                 <div className="col-12 col-md-6">Location:</div>
                                 <div className="col-12 col-md-6">{bugData["availability"]["location"]}</div>
