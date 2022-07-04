@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 /**
@@ -8,16 +8,30 @@ import PropTypes from 'prop-types';
  * @param price - price of item
  * @param icon_uri - URI of icon to display
  * @param shadow? - shadow of item (optional - specific to fish)
- * @returns 
  */
 export default function Card({name, price, icon_uri, shadow}) {
+    const itemName = useRef(name);
+
+    useEffect(() => {
+        itemName.current = capitalizeFirstChar(itemName.current);
+    }, []);
+
+    function capitalizeFirstChar(itemName) {
+        let nameArr = itemName.split(" ");
+        nameArr = nameArr.map((part) => {
+            return part.charAt(0).toUpperCase() + part.substring(1, part.length);
+        });
+
+        return nameArr.join(" ");
+    }
+
     return (
         <div className='card'>
             <div className='card__icon'>
-                <img src={icon_uri} alt={name} />
+                <img src={icon_uri} alt={itemName.current} />
             </div>
             <div className='card__content'>
-                <p>{name['name-USen'].charAt(0).toUpperCase() + name['name-USen'].slice(1)}</p>
+                <p>{itemName.current}</p>
                 <p>{price + ' bells'}</p>
 
                 {shadow && <p>{shadow}</p>}
@@ -27,7 +41,7 @@ export default function Card({name, price, icon_uri, shadow}) {
 }
 
 Card.propTypes = {
-    name: PropTypes.object,
+    name: PropTypes.string,
     price: PropTypes.number,
     icon_uri: PropTypes.string,
     shadow: PropTypes.string,

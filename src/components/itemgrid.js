@@ -20,11 +20,11 @@ export default function ItemGrid({itemList, area}) {
                     return (
                         <Link to={path}>
                             <Card 
-                                key={item[1].id}
-                                name={item[1].name}
-                                price={item[1].price}
-                                icon_uri={item[1].icon_uri}
-                                shadow={item[1].shadow}
+                                key={ item[1].id }
+                                name={ item[1].name['name-USen'] }
+                                price={ item[1].price }
+                                icon_uri={ item[1].icon_uri }
+                                shadow={ item[1].shadow }
                             />
                         </Link>
                     );
