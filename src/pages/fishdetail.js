@@ -56,8 +56,13 @@ export default function FishDetail() {
 
     function capitalizeFirstChar(responseObj) {
         let fishName = responseObj["name"]["name-USen"];
-        fishName = fishName.charAt(0).toUpperCase() + fishName.substring(1, fishName.length);
-        responseObj = {...responseObj, name: fishName};
+
+        let nameArr = fishName.split(" ");
+        nameArr = nameArr.map((namePart) => {
+            return namePart.charAt(0).toUpperCase() + namePart.substring(1, namePart.length);
+        });
+
+        responseObj = {...responseObj, name: nameArr.join(" ")};
         return responseObj;
     }
 
