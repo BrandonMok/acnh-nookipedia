@@ -14,7 +14,7 @@ monthMap.set('11', 'November');
 monthMap.set('12', 'December');
 
 export function convertMonthNumToText(responseObj) {
-    if (responseObj["availability"]["month-northern"] && responseObj["availability"]["month-southern"]) {
+    if (responseObj["availability"]["month-northern"] !== "" && responseObj["availability"]["month-southern"] !== "") {
         let northernAvail =  responseObj["availability"]["month-northern"];
         let southernAvail =  responseObj["availability"]["month-southern"];
     

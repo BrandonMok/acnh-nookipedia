@@ -10,8 +10,6 @@ import { convertMonthNumToText, capitalizeFirstChar } from '../utilities/detailP
 export default function BugDetail() {
     const {id} = useParams();
     const [bugData, updateBugData] = useState({});
-
-    // Note: Don't think this will benefit from useMemo...
     const apiData = useMemo(async() => await fetchBugData(), []);
 
     async function fetchBugData() {
@@ -22,11 +20,10 @@ export default function BugDetail() {
     useEffect(() => {
         apiData
         .then((resp) => {
+            // modify obj key for name to be user friendly
             resp = capitalizeFirstChar(resp);
-
-            if (resp["availability"]["month-northern"] !== "" && resp["availability"]["month-southern"] !== "") {
-                resp = convertMonthNumToText(resp);
-            }
+            // modify obj key to change the given month number to a text version (e.g. 1-5 becomes January-May),
+            resp = convertMonthNumToText(resp);
             
             updateBugData(resp);
         });
@@ -58,13 +55,30 @@ export default function BugDetail() {
                                     <div className="col-12 col-md-6">{bugData["availability"]["time"]}</div>
                                 </div>
                             )}
-{/* 
-                            {bugData.availabilty["month-northern"] && (
+
+                            {/* {bugData.availabilty["month-northern"] && (
                                 <div className="row">
                                     <div className="col-12 col-md-6">Northern Availability</div>
                                     <div className="col-12 col-md-6">{ bugData["availability"]["month-northern"]}</div>
                                 </div>
                             )} */}
+
+                            {/* {bugData.availabilty["month-southern"] && (
+                                <div className="row">
+                                    <div className="col-12 col-md-6">Southern Availability</div>
+                                    <div className="col-12 col-md-6">{ bugData["availability"]["month-southern"]}</div>
+                                </div>
+                            )} */}
+
+                            <div className="row" >
+                                <div className="col-12 col-md-6">Price</div>
+                                <div className="col-12 col-md-6">{bugData["price"]} bells</div>
+                            </div>
+
+                            <div className="row" >
+                                <div className="col-12 col-md-6">Price Flick</div>
+                                <div className="col-12 col-md-6">{bugData["price-flick"]} bells</div>
+                            </div>
 
                             <div className="row quote-row">
                                 <div className="col-12">Catch Phrase</div>
@@ -81,6 +95,8 @@ export default function BugDetail() {
         );
     }
     else {
-        return <></>
+        return (
+            <></>
+        );
     }
 }

@@ -23,11 +23,8 @@ export default function FishDetail() {
         .then((resp) => {
             // modify obj key for name to be user friendly
             resp = capitalizeFirstChar(resp);
-
-            if (resp["availability"]["month-northern"] !== "" && resp["availability"]["month-southern"] !== "") {
-                // modify obj key to change the given month number to a text version (e.g. 1-5 becomes January-May),
-                resp = convertMonthNumToText(resp);
-            }
+            // modify obj key to change the given month number to a text version (e.g. 1-5 becomes January-May),
+            resp = convertMonthNumToText(resp);
                 
             updateFish(resp);
         });
