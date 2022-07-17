@@ -6,6 +6,7 @@ import FishDetail from './pages/fish/fishdetail';
 import Bugs from './pages/bug/bugs';
 import BugDetail from './pages/bug/bugdetail';
 import SeaCreatures from './pages/sea/seacreatures';
+import SeaCreaturesDetail from './pages/sea/seacreaturesDetail';
 import Header from './components/header';
 import Footer from './components/footer';
 import Error from './pages/error';
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/bugs" element={<Bugs />} />
         <Route path="/bugs/:id" element={<BugDetail />} />
         <Route path="/sea" element={<SeaCreatures />} />
+        <Route path="/sea/:id" element={<SeaCreaturesDetail />} />
         <Route path="*" element={<Error />} />
       </Routes>
 
