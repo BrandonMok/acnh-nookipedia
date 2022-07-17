@@ -6,15 +6,17 @@ From availability to location and lastly to prices, the Nookipedia is a valuable
 
 ## Nookipedia built in React
 This project served as another learning and experimental opportunity to work with React. 
-It allowed me to tinker more with my current knowledge of the library while also offering opportunities to explore other
-offerings like the React router. Nevertheless, this project was a fun and enjoyable project to work on.
+It has allowed me to tinker more with my current knowledge while also exploring other features and related libraries such as React Router. Nevertheless, this project was a fun and enjoyable project to work on. 
+
+## Note:
+There may be additional features and pages added in the future. The API used offers more data related to the ACNH game
+that would make great additions. However, future additions to the React site/application is left to available downtime if any.
 
 ## API 
-http://acnhapi.com/doc
-
+`http://acnhapi.com/doc`
 
 ## Commands
 | Command | Desc |
 | ---------| --------|
-| npm install | Install all dependencies |
+| yarn install | Install all dependencies |
 | npm start | Starts dev environment at localhost:3000 |
