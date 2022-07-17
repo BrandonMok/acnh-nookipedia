@@ -5,7 +5,7 @@ import Fish from './pages/fish/fish';
 import FishDetail from './pages/fish/fishdetail';
 import Bugs from './pages/bug/bugs';
 import BugDetail from './pages/bug/bugdetail';
-import SeaCreatures from './pages/seacreatures';
+import SeaCreatures from './pages/sea/seacreatures';
 import Header from './components/header';
 import Footer from './components/footer';
 import Error from './pages/error';
