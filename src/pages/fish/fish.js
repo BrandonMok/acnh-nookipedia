@@ -33,7 +33,7 @@ export default function Fish() {
 
     
     if (loading) {
-        return (<Loading />);
+        return <Loading />;
     }
     else {
         return (

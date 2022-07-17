@@ -20,7 +20,7 @@ export default function Search({fullList, updateList}) {
     // clears text in input AND sets list back to full
     function clearInput(e) {
         textInput.current.value = " ";
-        handleSearch(e);
+        updateList(fullList);
     }
 
     const handleSearch = useCallback((e) => {
@@ -29,12 +29,12 @@ export default function Search({fullList, updateList}) {
         const searchTerm = textInput.current.value;
 
         if (searchTerm !== "") {
-            let validInput = inputSanitize(searchTerm).toLowerCase();
+            const validInput = inputSanitize(searchTerm).toLowerCase();
     
             let filteredList = fullList.filter((item) => {
-                let itemName = item[1].name["name-USen"].toString().toLowerCase();
-                let shadow = item[1].shadow ? item[1].shadow.toString().toLowerCase() : undefined;
-                let price = item[1].price.toString() + " bells";
+                const itemName = item[1].name["name-USen"].toString().toLowerCase();
+                const shadow = item[1].shadow !== undefined ? item[1].shadow.toString().toLowerCase() : "";
+                const price = item[1].price.toString() + " bells";
 
                 return (
                     itemName.includes(validInput) || 
