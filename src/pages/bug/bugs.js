@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import ItemGrid from '../components/itemgrid';
-import Search from '../components/search';
-import NoResults from '../components/noResults';
-import Loading from '../components/loading';
+import ItemGrid from '../../components/itemgrid';
+import Search from '../../components/search';
+import NoResults from '../../components/noResults';
+import Loading from '../../components/loading';
 
 export default function Bugs() {
     let bugBackup = useRef();

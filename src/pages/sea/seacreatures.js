@@ -1,8 +1,8 @@
 import React, {useEffect, useState, useMemo, useRef} from 'react';
-import ItemGrid from '../components/itemgrid';        
-import Search from '../components/search';
-import NoResults from '../components/noResults';
-import Loading from '../components/loading';
+import ItemGrid from '../../components/itemgrid';        
+import Search from '../../components/search';
+import NoResults from '../../components/noResults';
+import Loading from '../../components/loading';
 
 export default function SeaCreatures() {
     let seaCreatureBackup = useRef();

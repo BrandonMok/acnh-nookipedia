@@ -15,5 +15,6 @@ http://acnhapi.com/doc
 
 ## Commands
 | Command | Desc |
+| ---------| --------|
 | npm install | Install all dependencies |
 | npm start | Starts dev environment at localhost:3000 |
