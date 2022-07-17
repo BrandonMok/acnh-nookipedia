@@ -1,19 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useParams } from "react-router";
-
-let monthMap = new Map();
-monthMap.set('1', 'January');
-monthMap.set('2', 'February');
-monthMap.set('3', 'March');
-monthMap.set('4', 'April');
-monthMap.set('5', 'May');
-monthMap.set('6', 'June');
-monthMap.set('7', 'July');
-monthMap.set('8', 'August');
-monthMap.set('9', 'September');
-monthMap.set('10', 'October');
-monthMap.set('11', 'November');
-monthMap.set('12', 'December');
+import { convertMonthNumToText, capitalizeFirstChar } from '../utilities/detailPageUtilities';
 
 /**
  * FishDetail
@@ -31,71 +18,31 @@ export default function FishDetail() {
         return await response.json();
     }
 
-    function monthNumToText(responseObj) {
-        let northernAvail =  responseObj["availability"]["month-northern"];
-        let southernAvail =  responseObj["availability"]["month-southern"];
-
-        let northernNumArr = northernAvail.split('-');
-        let northernText = monthMap.get(northernNumArr[0]) + "-" + monthMap.get(northernNumArr[1]);
-
-        let southernNumArr = southernAvail.split('-');
-        let southernText = monthMap.get(southernNumArr[0]) + "-" + monthMap.get(southernNumArr[1]);
-
-        // Update the key/values in the responseObj
-        responseObj = {
-            ...responseObj, 
-            "availability": { 
-                ...responseObj["availability"], 
-                "month-northern": northernText, 
-                "month-southern": southernText
-            }
-        }
-
-        return responseObj;
-    }
-
-    function capitalizeFirstChar(responseObj) {
-        let fishName = responseObj["name"]["name-USen"];
-
-        let nameArr = fishName.split(" ");
-        nameArr = nameArr.map((namePart) => {
-            return namePart.charAt(0).toUpperCase() + namePart.substring(1, namePart.length);
-        });
-
-        responseObj = {...responseObj, name: nameArr.join(" ")};
-        return responseObj;
-    }
-
     useEffect(() => {
         apiData
         .then((resp) => {
             // modify obj key for name to be user friendly
             resp = capitalizeFirstChar(resp);
-
-            if (resp["availability"]["month-northern"] !== "" && resp["availability"]["month-southern"] !== "") {
-                // modify obj key to change the given month number to a text version (e.g. 1-5 becomes January-May),
-                resp = monthNumToText(resp);
-                updateFish(resp);
-            }
-            else {
-                updateFish(resp);
-            }
+            // modify obj key to change the given month number to a text version (e.g. 1-5 becomes January-May),
+            resp = convertMonthNumToText(resp);
+                
+            updateFish(resp);
         });
     }, [apiData]);
 
 
     if (Object.keys(fish).length !== 0) {
         return (
-            <div className="fish-detail">
-                <div className="fish-detail__container">
-                    <div className="fish-detail__container__image-container">
+            <div className="detail">
+                <div className="detail__container">
+                    <div className="detail__container__image-container">
                         <img src={ fish["image_uri"] } alt={ fish["name"] } />
                     </div>
-                    <div className="fish-detail__container__fish-info">
+                    <div className="detail__container__info">
 
                         <h1>{ fish["name"] }</h1>
 
-                        <div className="fish-detail__container__fish-info__tabular">
+                        <div className="detail__container__info__tabular">
                             <div className="row">
                                 <div className="col-12 col-md-6">Location:</div>
                                 <div className="col-12 col-md-6">{ fish["availability"]["location"] }</div>

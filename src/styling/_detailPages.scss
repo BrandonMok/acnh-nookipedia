@@ -1,4 +1,4 @@
-.fish-detail {
+.detail {
     display: flex;
     justify-content: center;
 
@@ -19,7 +19,7 @@
             }
         }
     
-        &__fish-info {
+        &__info {
             background-color: $brown;
             width: 100%;
             padding: 2em;
@@ -39,14 +39,14 @@
 
 
 @include media-breakpoint-up(md) {
-    .fish-detail {
+    .detail {
         margin: 2em 0;
 
         &__container {
             border-radius: 2em;
             max-width: 50vw;
 
-            &__fish-info {
+            &__info {
                 border-radius: 0 0 2em 2em;
 
                &__tabular {
@@ -67,9 +67,9 @@
 }
 
 @include media-breakpoint-up(lg) {
-    .fish-detail {
+    .detail {
         &__container {
-            &__fish-info {
+            &__info {
                &__tabular {
                   padding: 0 4em;
 
@@ -90,9 +90,9 @@
 }
 
 @include media-breakpoint-up(xl) {
-    .fish-detail {
+    .detail {
         &__container {
-            &__fish-info {
+            &__info {
                 &__tabular {
                     padding: 0 8em;
 
