@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.scss';
 import Homepage from './pages/homepage';
-import Fish from './pages/fish';
-import FishDetail from './pages/fishdetail';
-import Bugs from './pages/bugs';
-import BugDetail from './pages/bugdetail';
+import Fish from './pages/fish/fish';
+import FishDetail from './pages/fish/fishdetail';
+import Bugs from './pages/bug/bugs';
+import BugDetail from './pages/bug/bugdetail';
 import SeaCreatures from './pages/seacreatures';
 import Header from './components/header';
 import Footer from './components/footer';

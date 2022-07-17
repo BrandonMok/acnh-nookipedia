@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { useParams } from 'react-router-dom';
-import { convertMonthNumToText, capitalizeFirstChar } from '../utilities/detailPageUtilities';
+import { convertMonthNumToText, capitalizeFirstChar } from '../../utilities/detailPageUtilities';
 
 /**
  * BigDetail
