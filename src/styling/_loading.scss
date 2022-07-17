@@ -1,0 +1,12 @@
+.loading {
+    &__container {
+        text-align: center;
+        padding: 2em;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .loading {
+        padding: 10em;
+    }
+}
