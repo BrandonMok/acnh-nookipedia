@@ -37,5 +37,6 @@ export default function ItemGrid({itemList, area}) {
 }
 
 ItemGrid.propTypes = {
-    itemList: PropTypes.array
+    itemList: PropTypes.array,
+    area: PropTypes.string
 }
