@@ -56,12 +56,12 @@ export default function BugDetail() {
                                 </div>
                             )}
 
-                            {/* {bugData.availabilty["month-northern"] && (
+                            {bugData.availabilty["month-northern"] && (
                                 <div className="row">
                                     <div className="col-12 col-md-6">Northern Availability</div>
                                     <div className="col-12 col-md-6">{ bugData["availability"]["month-northern"]}</div>
                                 </div>
-                            )} */}
+                            )}
 
                             {/* {bugData.availabilty["month-southern"] && (
                                 <div className="row">
