@@ -9,8 +9,9 @@ This project served as another learning and experimental opportunity to work wit
 It has allowed me to tinker more with my current knowledge while also exploring other features and related libraries such as React Router. Nevertheless, this project was a fun and enjoyable project to work on. 
 
 ## Note:
-There may be additional features and pages added in the future. The API used offers more data related to the ACNH game
-that would make great additions. However, future additions to the React site/application is left to available downtime if any.
+The ACNH API used to gather data for the application provides more data and opportunities that would make great additions!
+Additionally, there are a lot of performance, possible refactoring, and more that I would like to do with the application.
+However, future work and additions are up to available downtime that I may have.lication is left to available downtime if any.
 
 ## API 
 `http://acnhapi.com/doc`
@@ -20,3 +21,16 @@ that would make great additions. However, future additions to the React site/app
 | ---------| --------|
 | yarn install | Install all dependencies |
 | npm start | Starts dev environment at localhost:3000 |
+
+## Packages
+The application was built using various packages, libraries, and external resources. Please refer to the following list for more info:
+
+| Package/Library | Desc|
+| ---------| --------|
+| Bootstrap | Used for modular styling |
+| Sass | Used for easier composing and understanding of styling markup |
+| React Router Dom | Used to allow multipage functionality |
+
+
+## Screenshots
+For a quick look at the ACNH Nookipedia application, please refer to the `screenshots` directory.
