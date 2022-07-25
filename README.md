@@ -29,7 +29,7 @@ The application was built using various packages, libraries, and external resour
 | ---------| --------|
 | Bootstrap | Used for modular styling |
 | Sass | Used for easier composing and understanding of styling markup |
-| React Router Dom | Used to allow multipage functionality |
+| React Router | Used to allow multipage functionality |
 
 
 ## Screenshots
